@@ -19,5 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/createMeeting', 'APIController@createMeeting');
-Route::get('/createAttendee/{meetingId}', 'APIController@createAttendee');
+Route::get('/createAttendee', 'APIController@createAttendee');
 Route::delete('/deleteMeeting/{meetingId}', 'APIController@deleteMeeting');

@@ -301,7 +301,41 @@
 
   </div>
 
-  <button id="example" (click)="join()">Join Meeting</button>
+  <button id="example" (click)="join('')">Create Meeting</button>
+
+  <input id="meetingId" type="text" placeholder="Meeting Id" required>
+  <button (click)="joinExisting()">Join Existing Meeting</button>
+
+  <div>
+    <label for="mic">Audio Input Devices: </label>
+    <select name="mic" id="mic" [value]="audioInputDevices" (change)="onMicChange($event)">
+      <option *ngFor="let device of audioInputDevices" [value]="device.deviceId">{{ device.label }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="speaker">Audio Output Devices: </label>
+    <select name="speaker" id="speaker" [value]="audioOutputDevices" (change)="onSpeakerChange($event)">
+      <option *ngFor="let device of audioOutputDevices" [value]="device.deviceId">{{ device.label }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="webcam">Video Input Devices: </label>
+    <select id="webcam" name="webcam" [value]="videoInputDevices" (change)="onCamChange($event)">
+      <option *ngFor="let device of videoInputDevices" [value]="device.deviceId">{{ device.label }}</option>
+    </select>
+  </div>
+
+  <div class="session-body">
+    <div class="session-instructions">Video Conferencing</div>
+    <input class="name" type="name" placeholder="Your Name" required>
+    <button class="session-call" (click)="call()">Call</button>
+    <audio class="session-audio"></audio>
+    <video class="session-local-video"></video>
+    <video class="session-remote-video"></video>
+  </div>
+
 
 </div>
 

@@ -1,0 +1,13 @@
+# run integration tests if files in these directories change
+demos/browser
+src/
+integration/
+
+# exceptions
+!src/versioning/Versioning.ts
+!README.md
+!demos/browser/README.md
+!demos/device/README.md
+!demos/singlejs/README.md
+!demos/videohelpdesk/README.md
+!guides/

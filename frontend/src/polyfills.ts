@@ -53,6 +53,8 @@
  *  (window as any).__Zone_enable_cross_context_check = true;
  *
  */
+// aws-sdk requires global to exist
+(window as any).global = window;
 
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.

@@ -1,0 +1,31 @@
+{
+  "`": 1,
+  "name": "audio_test.config.json %ts",
+  "grids": [],
+  "tests": [
+    {
+      "name": "Audio Test %ts",
+      "description": "Audio Test",
+      "tupleSize": 2,
+      "noOfThreads": 1,
+      "testImpl": "AudioTest.js",
+      "payload": {
+        "url": "http://localhost:8080/",
+        "port": 30001,
+        "retry": 2
+      }
+    }
+  ],
+  "clients": [
+    {
+      "browserName": "chrome",
+      "version": "latest",
+      "platform": "MAC"
+    },
+    {
+      "browserName": "firefox",
+      "version": "latest",
+      "platform": "MAC"
+    }
+  ]
+}

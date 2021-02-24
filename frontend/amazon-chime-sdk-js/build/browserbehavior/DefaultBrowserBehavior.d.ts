@@ -1,0 +1,48 @@
+import BrowserBehavior from './BrowserBehavior';
+export default class DefaultBrowserBehavior implements BrowserBehavior {
+    private readonly browser;
+    private browserSupport;
+    private browserName;
+    private chromeLike;
+    private webkitBrowsers;
+    private enableUnifiedPlanForChromiumBasedBrowsers;
+    constructor({ enableUnifiedPlanForChromiumBasedBrowsers, }?: {
+        enableUnifiedPlanForChromiumBasedBrowsers?: boolean;
+    });
+    version(): string;
+    majorVersion(): number;
+    name(): string;
+    hasChromiumWebRTC(): boolean;
+    hasWebKitWebRTC(): boolean;
+    hasFirefoxWebRTC(): boolean;
+    supportsCanvasCapturedStreamPlayback(): boolean;
+    requiresUnifiedPlan(): boolean;
+    requiresResolutionAlignment(width: number, height: number): [number, number];
+    requiresCheckForSdpConnectionAttributes(): boolean;
+    requiresIceCandidateGatheringTimeoutWorkaround(): boolean;
+    requiresUnifiedPlanMunging(): boolean;
+    requiresSortCodecPreferencesForSdpAnswer(): boolean;
+    requiresSimulcastMunging(): boolean;
+    requiresBundlePolicy(): RTCBundlePolicy;
+    requiresPromiseBasedWebRTCGetStats(): boolean;
+    requiresVideoElementWorkaround(): boolean;
+    requiresNoExactMediaStreamConstraints(): boolean;
+    requiresGroupIdMediaStreamConstraints(): boolean;
+    getDisplayMediaAudioCaptureSupport(): boolean;
+    screenShareUnsupported(): boolean;
+    isSupported(): boolean;
+    supportString(): string;
+    supportedVideoCodecs(): Promise<string[]>;
+    supportsSetSinkId(): boolean;
+    private isIOSSafari;
+    private isSafari;
+    private isFirefox;
+    private isIOSFirefox;
+    private isIOSChrome;
+    private isChrome;
+    private isEdge;
+    private isSamsungInternet;
+    private isAndroid;
+    private isPixel3;
+    private isUnifiedPlanSupported;
+}

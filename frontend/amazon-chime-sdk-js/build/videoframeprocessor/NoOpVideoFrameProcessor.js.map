@@ -1,0 +1,1 @@
+{"version":3,"file":"NoOpVideoFrameProcessor.js","sourceRoot":"","sources":["../../src/videoframeprocessor/NoOpVideoFrameProcessor.ts"],"names":[],"mappings":";AAAA,qEAAqE;AACrE,sCAAsC;;;;;;;;;;;AAKtC;;;GAGG;AACH,MAAqB,uBAAuB;IACpC,OAAO,CAAC,OAA2B;;YACvC,OAAO,OAAO,CAAC;QACjB,CAAC;KAAA;IAEK,OAAO;;YACX,OAAO;QACT,CAAC;KAAA;CACF;AARD,0CAQC"}

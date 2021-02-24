@@ -12,21 +12,34 @@ class APIController extends Controller
     /**
      * create a new meeting
      */
-    public function createMeeting() 
+    public function createMeeting(Request $request) 
     {
         $chimeClient = AWS::createClient('chime');
+        $mId = $request->query('meetingId');
+        $result = null;
 
-        $result = $chimeClient->createMeeting([
-            'ClientRequestToken' => 'Meeting1', // REQUIRED
-            'ExternalMeetingId' => 'Meeting1',
-            'MediaRegion' => 'ap-southeast-1',
-            'Tags' => [
-                [
-                    'Key' => 'type', // REQUIRED
-                    'Value' => 'test', // REQUIRED
+        if(empty($mId)) {
+
+            $result = $chimeClient->createMeeting([
+                'ClientRequestToken' => 'Meeting1', // REQUIRED
+                'ExternalMeetingId' => 'Meeting1',
+                'MediaRegion' => 'ap-southeast-1',
+                'Tags' => [
+                    [
+                        'Key' => 'type', // REQUIRED
+                        'Value' => 'test', // REQUIRED
+                    ],
                 ],
-            ],
-        ]);
+            ]);
+
+        } else {
+
+            $result = $chimeClient->getMeeting([
+                'MeetingId' => $mId, // REQUIRED
+            ]);
+
+        }
+
         $obj = $result->toArray();
         return response()->json($obj);
     }
@@ -34,12 +47,13 @@ class APIController extends Controller
     /**
      * create a new attendee for given meeting id
      */
-    public function createAttendee($meetingId) {
+    public function createAttendee(Request $request) {
         $chimeClient = AWS::createClient('chime');
+        $mId = $request->query('meetingId');
 
         $attendeeResult = $chimeClient->createAttendee([
-            'ExternalUserId' => 'User0', // REQUIRED
-            'MeetingId' => $meetingId, // REQUIRED
+            'ExternalUserId' => 'User' . mt_rand(0,999), // REQUIRED
+            'MeetingId' => $mId, // REQUIRED
             'Tags' => [
                 [
                     'Key' => 'type', // REQUIRED
